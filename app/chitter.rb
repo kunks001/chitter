@@ -12,6 +12,12 @@ class Chitter < Sinatra::Base
   require_relative 'controllers/application'
   require_relative 'controllers/users'
 
+  require_relative 'helpers/application_helper'
+
+  require_relative 'data_mapper_setup'
+
+  helpers ApplicationHelper
+
   enable :sessions
   set :session_secret, 'super secret'
 
