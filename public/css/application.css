@@ -1,0 +1,23 @@
+.container {
+	width: 960px;
+	margin:auto;
+}
+
+body {
+	position: relative;
+	margin: auto;
+}
+
+.form {
+	position: relative;
+	margin:auto;
+}
+
+.input-group .form-control:last-child {
+	width: 85%;
+	float: right;
+}
+
+.input-group-addon {
+	text-align: left;
+}

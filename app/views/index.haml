@@ -1,3 +1,4 @@
-%h3
-  - user = current_user.email
-  ="Welcome to Chitter, #{user}!"
+- if current_user
+  %h3
+    - user = current_user.email
+    ="Welcome to Chitter, #{user}!"

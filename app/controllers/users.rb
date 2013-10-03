@@ -4,10 +4,15 @@ class Chitter < Sinatra::Base
   end
 
   post '/users/new' do
-    user = User.create( :email    => params[:email], 
-                        :password => params[:password]
-                      )
-    session[:user_id] = user.id
-    redirect to('/')
+    user = User.new(  :email => params[:email], 
+                      :password => params[:password],
+                      :password_confirmation  => params[:password_confirmation]
+                    )
+    if user.save
+      session[:user_id] = user.id
+      redirect to('/')
+    else
+      haml :"/users/new"
+    end
   end
 end

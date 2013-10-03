@@ -1,10 +1,25 @@
-%h1
-  Sign up
+.container
+  %h1
+    Sign up
 
-%form(action="/users/new" method="post")
-  Email:
-  %input(name="email" type="text")
-  Password:
-  %input(name="password" type="password")
-  %input(type="submit" value="Sign up")
-
+  .col-lg-12  
+    %form(action="/users/new" method="post")
+      .row
+        .col-lg-6
+          .input-group
+            %span.input-group-addon
+              Email    
+              %input(type="text" class="form-control" placeholder="Email")
+      .row
+        .col-lg-6
+          .input-group
+            %span.input-group-addon
+              Password    
+              %input(type="text" class="form-control" placeholder="Password")
+      .row
+        .col-lg-6
+          .input-group
+            %span.input-group-addon
+              Confirm Password    
+              %input(type="text" class="form-control" placeholder="Confirm Password")
+          %input(type="submit" value="Sign up")
