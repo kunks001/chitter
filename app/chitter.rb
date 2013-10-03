@@ -21,6 +21,10 @@ class Chitter < Sinatra::Base
   enable :sessions
   set :session_secret, 'super secret'
 
+  set :public_folder, 'public'
+  set :static, true
+
+
   register Sinatra::Partial
 
 end
