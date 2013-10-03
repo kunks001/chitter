@@ -3,23 +3,23 @@
     Sign up
 
   .col-lg-12  
-    %form(action="/users/new" method="post")
+    %form(action="/users" method="post")
       .row
         / .col-lg-6
         .input-group
           %span.input-group-addon
             Email    
-            %input(type="text" class="form-control" placeholder="Email")
+            %input(type="text" class="form-control" placeholder="Email" name="email")
       .row
         / .col-lg-6
         .input-group
           %span.input-group-addon
             Password    
-            %input(type="text" class="form-control" placeholder="Password")
+            %input(type="text" class="form-control" placeholder="Password" name="password")
       .row
         / .col-lg-6
         .input-group
           %span.input-group-addon
             Confirm Password    
-            %input(type="text" class="form-control" placeholder="Confirm Password")
+            %input(type="text" class="form-control" placeholder="Confirm Password" name="password_confirmation")
       %input(type="submit" value="Sign up")

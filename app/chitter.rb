@@ -24,6 +24,9 @@ class Chitter < Sinatra::Base
   set :public_folder, 'public'
   set :static, true
 
+  use Rack::Flash
+  use Rack::MethodOverride
+
 
   register Sinatra::Partial
 
