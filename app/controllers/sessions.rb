@@ -15,4 +15,10 @@ class Chitter < Sinatra::Base
 	    haml :"sessions/new"
 	  end
 	end
-	end
+
+	delete '/sessions' do
+    flash[:notice] = "Good bye!"
+    session[:user_id] = nil
+    redirect to('/')
+  end
+end
