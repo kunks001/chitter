@@ -10,3 +10,6 @@
 - @cheeps.each do |cheep|
   = cheep.content
   = cheep.user.username
+  - time = cheep.created_at
+  = time.strftime("%m/%d/%Y")
+  = time.strftime("%I:%M%p")

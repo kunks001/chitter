@@ -4,7 +4,8 @@ class Chitter < Sinatra::Base
     user = current_user
     
     cheep = Cheep.new(  :content => content,
-                      	:user => user
+                      	:user => user,
+                      	:created_at => DateTime.now
                      )
     if cheep.save
       redirect to('/')
