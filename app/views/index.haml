@@ -2,3 +2,10 @@
   %h3
     - user = current_user.email
     ="Welcome to Chitter, #{user}!"
+
+%form{action: "/cheeps/new", method: "post"}
+  %input{name: "content", title: "content", placeholder: "cheep"}
+  %input{type: "submit", value: "Post", class: "submit"}
+
+- @cheeps.each do |cheep|
+  = cheep.content

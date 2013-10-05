@@ -2,6 +2,7 @@ require 'bcrypt'
 
 class User
   include DataMapper::Resource
+  has n, :cheeps, :through => Resource
 
   property :id, Serial
   property :email, String,  :unique => true,
