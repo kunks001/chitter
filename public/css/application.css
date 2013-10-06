@@ -21,3 +21,8 @@ body {
 .input-group-addon {
 	text-align: left;
 }
+
+.col-md-6 {
+	margin-left: 25%;
+	text-align: center;
+}
