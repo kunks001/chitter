@@ -4,6 +4,7 @@ require 'dm-postgres-adapter'
 require 'rack-flash'
 require 'haml'
 require 'sinatra/partial'
+require 'json'
 
 class Chitter < Sinatra::Base
 

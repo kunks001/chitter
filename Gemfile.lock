@@ -160,6 +160,7 @@ DEPENDENCIES
   guard-cucumber
   guard-rspec
   haml
+  json
   rack-flash3
   rspec
   sinatra

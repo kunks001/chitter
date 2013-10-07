@@ -1,0 +1,13 @@
+/ - cheeps = @cheeps.flatten!
+-	cheeps = JSON.parse(@cheeps)
+- cheeps.each do |cheep|
+  .row
+    .col-md-6 
+      .col-md-offset-3
+        %h3
+          = cheep["user"]
+      = cheep["content"]
+      = cheep["date"]
+      = cheep["time"]
+/ t @cheeps
+/ =@cheeps

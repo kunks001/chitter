@@ -6,7 +6,16 @@
     %link(rel="stylesheet" type="text/css" href="/css/bootstrap.css")
     %link(rel="stylesheet" type="text/css" href="/css/application.css")
     %link(rel="stylesheet" type="text/css" href="/css/bootstrap-theme.css")
-    
+    %script(src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js")
+    / :javascript
+    /   $(document).ready(function(){
+    /     getUpdate();
+    /   })
+    /   function getUpdate(){
+    /     $('body').load("/");
+    /     setTimeout(getUpdate,1000);
+    /   }
+
   %body
     %nav(class="navbar navbar-default" role="navigation")
       .navbar-header

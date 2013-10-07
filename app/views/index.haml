@@ -1,19 +1,30 @@
 - if current_user
   %h3
-    - user = current_user.email
+    - user = current_user.username
     ="Welcome to Chitter, #{user}!"
 
 %form{action: "/cheeps/new", method: "post"}
   %input{name: "content", title: "content", placeholder: "cheep"}
   %input{type: "submit", value: "Post", class: "submit"}
 
-- @cheeps.each do |cheep|
-  .row
-    .col-md-6 
-      .col-md-offset-3
-        %h3
-          = cheep.user.username
-      = cheep.content
-      - time = cheep.created_at
-      = time.strftime("%m/%d/%Y")
-      = time.strftime("%I:%M%p")
+#cheeps
+  - @cheeps.each do |cheep|
+    .row
+      .col-md-6 
+        .col-md-offset-3
+          %h3
+            - user = cheep.user
+            = user.username
+        = cheep.content
+        - time = cheep.created_at
+        = time.strftime("%m/%d/%Y")
+        = time.strftime("%I:%M%p")
+
+:javascript
+  $(document).ready(function(){
+    getUpdate();
+  })
+  function getUpdate(){
+    $('#cheeps').load("/cheeps");
+    setTimeout(getUpdate,1000);
+  }
