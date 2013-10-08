@@ -4,10 +4,10 @@ feature "User adds cheeps" do
 
   before(:each) do
     User.create(:email => "test@test.com", 
-    						:username => "tester"
+    						:username => "tester",
                 :password => 'test', 
                 :password_confirmation => 'test')
-    sign_in('test@test.com', 'wrong')
+    sign_in('test@test.com', 'test')
     visit '/'
   end
 

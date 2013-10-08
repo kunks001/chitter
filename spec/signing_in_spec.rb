@@ -4,6 +4,7 @@ feature "User signs in" do
 
   before(:each) do
     User.create(:email => "test@test.com", 
+                :username => "tester",
                 :password => 'test', 
                 :password_confirmation => 'test')
   end
@@ -12,14 +13,14 @@ feature "User signs in" do
     visit '/'
     expect(page).not_to have_content("Welcome, test@test.com")
     sign_in('test@test.com', 'test')
-    expect(page).to have_content("Welcome to Chitter, test@test.com")
+    expect(page).to have_content("Welcome to Chitter, tester")
   end
 
   scenario "with incorrect credentials" do
     visit '/'
     expect(page).not_to have_content("Welcome, test@test.com")
     sign_in('test@test.com', 'wrong')
-    expect(page).not_to have_content("Welcome to Chitter, test@test.com")
+    expect(page).not_to have_content("Welcome to Chitter, tester")
   end
 
   def sign_in(email, password)

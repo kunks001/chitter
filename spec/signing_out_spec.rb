@@ -4,6 +4,7 @@ feature 'User signs out' do
 
   before(:each) do
     User.create(:email => "test@test.com", 
+                :username => "tester",
                 :password => 'test', 
                 :password_confirmation => 'test')
   end
@@ -12,7 +13,7 @@ feature 'User signs out' do
     sign_in('test@test.com', 'test')
     click_button "Sign out"
     expect(page).to have_content("Good bye!")
-    expect(page).not_to have_content("Welcome, test@test.com")
+    expect(page).not_to have_content("Welcome, tester")
   end
 
   def sign_in(email, password)
