@@ -7,6 +7,15 @@
   %input{name: "content", title: "content", placeholder: "cheep"}
   %input{type: "submit", value: "Post", class: "submit"}
 
+.cheep_template
+  .row
+    .col-md-6 
+      .col-md-offset-3
+        %h3
+      %span.content
+      %span.date
+      %span.time
+
 #cheeps
   - @cheeps.each do |cheep|
     .row
@@ -15,16 +24,34 @@
           %h3
             - user = cheep.user
             = user.username
-        = cheep.content
+        %span.content= cheep.content
         - time = cheep.created_at
-        = time.strftime("%m/%d/%Y")
-        = time.strftime("%I:%M%p")
+        %span.date
+          = time.strftime("%m/%d/%Y")
+        %span.time
+          = time.strftime("%I:%M%p")
 
 :javascript
   $(document).ready(function(){
     getUpdate();
   })
   function getUpdate(){
-    $('#cheeps').load("/cheeps");
-    setTimeout(getUpdate,1000);
+    $.getJSON('/cheeps', function(cheepsList) {
+
+      $("#cheeps").html('')
+
+      $.each(cheepsList, function(i, cheep){
+        $newCheep = $('.cheep_template').clone();
+
+        $newCheep.find('h3').text(cheep.user);
+        $newCheep.find('.content').text(cheep.content);
+        $newCheep.find('.date').text(cheep.date);
+        $newCheep.find('.time').text(cheep.time);
+        $newCheep.removeClass('cheep_template');
+
+        $newCheep.appendTo('#cheeps')
+
+      })
+      setTimeout(getUpdate,1000);
+    })
   }

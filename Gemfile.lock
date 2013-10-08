@@ -162,6 +162,7 @@ DEPENDENCIES
   haml
   json
   rack-flash3
+  rack-test
   rspec
   sinatra
   sinatra-partial

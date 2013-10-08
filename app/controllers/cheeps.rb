@@ -13,7 +13,7 @@ class Chitter < Sinatra::Base
         user: cheep.user.username
       }
     end.to_json
-    haml :"cheeps/index", :layout => false
+    # haml :"cheeps/index", :layout => false
   end
 
 	post '/cheeps/new' do
